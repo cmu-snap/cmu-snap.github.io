@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="row pt-4 profile-pic-row">
+	<div class="col-8 col-xs-12 col-sm-10 col-md-8 mx-auto">
+
+		<img class="profile-pic mx-auto d-block" 
+	         src="{{ site.baseurl }}/images/people/{%- if page.photo -%}{{ page.photo }}{%- else -%}scottie.png{%- endif -%}">
+
+		<div class="profile w-100">
+			<h1>{{ page.name }}</h1>
+			{%- if page.position -%}<p class="position">{{ page.position }}</p>{%- endif -%}
+			<p>{{ page.content }}</p>
+
+			<div class="contact">
+				<h2>Contact</h2>
+				<table>
+					{%- if page.email -%}<tr><td><i class="fas fa-envelope mr-2"></i></td><td><a href="mailto:{{ page.email }}">{{ page.email }}</a></td></tr>{%- endif -%}
+					{%- if page.website -%}<tr><td><i class="fas fa-globe mr-2"></i></td><td><a href="{{ page.website }}">{{ page.website }}</a></td></tr>{%- endif -%}
+					{%- if page.phone -%}<tr><td><i class="fas fa-phone mr-2"></i></td><td>{{ page.phone }}</td></tr>{%- endif -%}
+					{%- if page.office -%}<tr><td style="text-align: center"><i class="fas fa-map-pin mr-2"></i></td><td>{{ page.office }}</td></tr>{%- endif -%}
+					{%- if page.twitter -%}<tr><td><i class="fab fa-twitter mr-2"></i></td><td><a href="https://twitter.com/{{ page.twitter }}">@{{ page.twitter }}</a></td></tr>{%- endif -%}
+					{%- if page.github -%}<tr><td><i class="fab fa-github mr-2"></i></td><td><a href="https://github.com/{{ page.github }}">{{ page.github }}</a></td></tr>{%- endif -%}
+					{%- if page.linkedin -%}<tr><td><i class="fab fa-linkedin mr-2"></i></td><td><a href="{{ page.linkedin }}">{{ page.linkedin }}</a></td></tr>{%- endif -%}
+				</table>
+			</div>
+		</div>
+
+	</div>  <!-- col -->
+</div>  <!-- row -->

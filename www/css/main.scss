@@ -1,0 +1,366 @@
+---
+---
+
+@import 'functions';
+@import 'variables';
+@import 'mixins/breakpoints';
+
+
+// colors
+$snap_red_dark: #C22025;
+$snap_red_med: #E61C40;
+$snap_red_light: #EE2B52;
+$snap_green_dark: #008042;
+$snap_green_light: #00A44C;
+$snap_yellow_dark: #F0A71F;
+$snap_yellow_light: #F5B61A;
+$snap_blue_dark: #142B5E;
+$snap_blue_med: #0B3982;
+$snap_blue_light: #174797;
+
+$primary_color: $snap_green_dark;
+$primary_hover_color: darken($primary_color, 10%);
+$primary_color_dark_bg: #dee2e6;
+$primary_color_dark_bg_hover: #ffffff;
+$primary_hover_color_dark_bg: darken($primary_color_dark_bg, 10%);
+
+$secondary_gray: #666666;
+
+// fonts
+$font_stack_body: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+$font_stack_header: "Lora",serif;
+$font_stack_title: "Montserrat", "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+.btn-primary {
+	background-color: $primary_color;
+	border-color: $primary_color;
+}
+.btn-primary:hover, .show>.btn-primary.dropdown-toggle {
+	background-color: $primary_hover_color;
+	border-color: $primary_hover_color;
+}
+
+body {
+	font-family: $font_stack_body;
+
+	h1 {
+		font-family: $font_stack_header;
+		font-weight: 700;
+	}
+
+	a {
+		color: $primary_color;
+		font-weight: 600;
+	}
+	a:hover {
+		color: $primary_hover_color;
+	}
+	
+	.body-nav-link {
+		color: $primary_color;
+		font-weight: 300;
+		font-size: 85%;
+	}
+	.body-nav-link:hover {
+		color: $primary_hover_color;
+	}
+}
+
+nav {
+	a {
+		color: #000000;
+		font-weight: 300;
+		font-size: 85%;
+		text-transform: uppercase;
+	}
+	a:hover {
+		color: $primary_color;
+	}
+}
+
+.home-bg {
+	.row {
+		height: 100vh;
+	}
+	
+	background-image: -webkit-linear-gradient(10deg, #FFFFFF 50%, $snap_green_dark 50%);
+	@include media-breakpoint-down(xs) {
+		background-image: -webkit-linear-gradient(-100deg, #FFFFFF 50%, $snap_green_dark 50%);
+	}
+
+	nav {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100vw;
+		z-index: 1;
+		
+		.navbar-collapse {
+			@include media-breakpoint-down(xs) {
+				background-color: rgba(255, 255, 255, 0.9);
+			}
+		}
+
+		@include media-breakpoint-up(sm) {
+			a {
+				color: lighten($snap_green_dark, 65%);
+			}
+			a:hover {
+				color: #FFFFFF;
+			}
+		}
+
+		.navbar-toggler {
+			border-color: rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	.snap-image {
+		padding-left: 7vw;
+		padding-right: 7vw;
+		@include media-breakpoint-down(xs) {
+			padding-left: 15vw;
+			padding-right: 15vw;
+			height: 50vh;
+
+			// vertical centering
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+	
+	.snap-text {
+		padding-left: 8vw;
+		padding-right: 6vw;
+		@include media-breakpoint-down(xs) {
+			height: 50vh;
+			
+			// vertical centering
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		color: #FFFFFF;
+
+		h1 {
+			font-size: 60px;
+			font-family: $font_stack_title;
+			font-weight: 200;
+			text-transform: uppercase;
+		}
+		h2 {
+			font-size: 32px;
+			font-family: $font_stack_title;
+			font-weight: 200;
+			text-transform: uppercase;
+		}
+
+		@include media-breakpoint-down(lg) {
+			h1 {
+				font-size: 44px;
+			}
+			h2 {
+				font-size: 24px;
+			}
+		}
+
+		@include media-breakpoint-down(md) {
+			h1 {
+				font-size: 32px;
+			}
+			h2 {
+				font-size: 18px;
+			}
+		}
+
+		@include media-breakpoint-down(sm) {
+			h1 {
+				font-size: 28px;
+			}
+			h2 {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+.blog-toc {
+	h5 {
+		margin-bottom: .2rem;
+	}
+
+	.post-meta {
+		color: $secondary_gray;
+		font-size: 80%;
+		text-transform: uppercase;
+	}
+	.post-excerpt {
+		font-size: 80%;
+	}
+}
+
+.post-header {
+	.post-meta {
+		color: $secondary_gray;
+		font-size: 85%;
+		text-transform: uppercase;
+	}
+}
+
+.post-tags {
+	.categories {
+		text-transform: uppercase;
+		font-weight: 400;
+		color: $snap_blue_med;
+	}
+	.tags {
+		.badge-primary {
+			background-color: $snap_blue_light;
+			font-weight: 400;
+		}
+	}
+}
+
+$profile_pic_size_lg: 250px;
+$profile_pic_size_sm: 100px;
+$profile_pic_overlap: (3/5);  // what frac of photo should overlap gray profile box?
+
+.profile {
+	background-color: #F0F1F2;
+	padding: 16px;
+	padding-top: calc(#{$profile_pic_size_lg} * #{$profile_pic_overlap});
+	border-radius: 4px;
+	
+	@include media-breakpoint-down(xs) {
+		padding-top: calc(#{$profile_pic_size_sm} * #{$profile_pic_overlap});
+		padding-top: 60px;
+	}
+
+	h1 {
+		margin-bottom: .1rem;
+	}
+
+	.position {
+		text-transform: uppercase;
+		font-weight: 400;
+		color: $snap_green_dark;
+	}
+
+	.contact {
+		h2 {
+			font-size: 90%;
+			text-transform: uppercase;
+			font-weight: 400;
+			color: $secondary_gray;
+			margin-bottom: .1rem;
+		}
+
+		.fas, .fab {
+			color: $snap_green_dark;
+			font-size: 90%;
+		}
+
+		a {
+			font-weight: 400;
+			color: #000000;
+		}
+	}
+}
+
+.profile-pic {
+	object-fit: cover;
+	border: 4px solid #FFFFFF;
+	border-radius: 10px;
+	background-color: lighten($snap_yellow_light, 10%);
+	
+	height: $profile_pic_size_lg;
+	width: $profile_pic_size_lg;
+
+	position: relative;
+	top: calc(#{$profile_pic_size_lg} * #{$profile_pic_overlap});
+	z-index: 10;
+	
+	@include media-breakpoint-down(xs) {
+		height: $profile_pic_size_sm;
+		width: $profile_pic_size_sm;
+		top: calc(#{$profile_pic_size_sm} * #{$profile_pic_overlap});
+		border: 3px solid #FFFFFF;
+		border-radius: 6px;
+	}
+}
+
+.profile-pic-row {
+	margin-top: calc(-#{$profile_pic_size_lg} * #{$profile_pic_overlap});
+	
+	@include media-breakpoint-down(xs) {
+		margin-top: calc(-#{$profile_pic_size_sm} * #{$profile_pic_overlap});
+	}
+}
+
+.directory-pic {
+	object-fit: cover;
+	height: 100px;
+	width: 100px;
+	border: 4px solid transparentize($snap_green_light, 0.4);
+	border-radius: 50px;
+}
+
+footer {
+	background: #252525;
+	color: $primary_color_dark_bg;
+
+	h1 {
+		font-size: 85%;
+		font-family: $font_stack_title;
+		text-transform: uppercase;
+		font-weight: 400;
+	}
+
+	a {
+		color: $primary_color_dark_bg;
+		font-weight: 300;
+	}
+	a:hover {
+		color: $primary_color_dark_bg_hover;
+	}
+
+	.connect {
+		font-size: 200%;
+	}
+	
+	.copyright {
+		font-size: 75%;
+	}
+}
+
+//button {
+//	a {
+//		color: $body_color;
+//	}
+//	a:hover {
+//		color: $body_color;
+//	}
+//
+//	&.active {
+//		a {
+//			color: $body_color_light;
+//		}
+//		a:hover {
+//			color: $body_color_light;
+//		}
+//		.text-muted {
+//			color: lighten(#868e96, 40%)!important;
+//		}
+//	}
+//}
+//
+//.navbar {
+//	font-size: 20px;
+//
+//	.active {
+//		border-bottom: 2px solid $primary_color !important;
+//	}
+//}

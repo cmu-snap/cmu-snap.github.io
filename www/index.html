@@ -1,0 +1,29 @@
+---
+layout: base
+---
+
+<div class="container-fluid home-bg">
+
+<nav class="navbar navbar-expand-sm px-4 py-2">
+	<a class="navbar-brand"><img height="30px"></a>  <!-- to match height of logo on normal pages -->
+	<button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarTogglerContent" aria-controls="navbarTogglerContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	{% include nav_buttons.html %}
+</nav>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 my-auto snap-image">
+			<img src="{{ site.baseurl }}/images/snap.svg">
+		</div>  <!-- col -->
+		
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 my-auto snap-text">
+			<h1>Systems, Networking,<span style="font-size: 85%; line-height: 85%;"> and </span>Performance</h1>
+			<h2>Research at CMU</h2>
+		</div>  <!-- col -->
+	</div>  <!-- row -->
+</div>  <!-- container -->
+
+<footer>
+	{% include footer_scripts.html %}
+</footer>

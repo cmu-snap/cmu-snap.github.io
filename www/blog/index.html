@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="row my-4">
+	<div class="col-xs-12 col-md-2 text-right ml-auto">
+	</div>  <!-- col -->
+	<div class="col-xs-12 col-md-10 col-lg-8 mr-auto">
+		<h1>Blog</h1>
+	</div>  <!-- col -->
+</div>  <!-- row -->
+
+{% for post in site.posts %}
+<div class="row">
+	<div class="col-xs-12 col-md-2 text-right ml-auto">
+		<div class="post-tags">
+			{%- if post.categories -%}
+			<span class="categories mr-2">
+				{{ post.categories[0] }}{% for c in post.categories offset:1 %}/{{ c }}{% endfor %}
+			</span>
+			{%- endif -%}
+			{%- if post.tags -%}
+			<span class="tags">
+				{% for t in post.tags %}<span class="badge badge-pill badge-primary mx-1">{{ t }}</span>{% endfor %}
+			</span>
+			{%- endif -%}
+		</div>
+	</div>  <!-- col -->
+
+	<div class="col-xs-12 col-md-10 col-lg-8 mr-auto">
+		<div class="blog-toc">
+			<h5><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h5>
+			<p class="post-meta mb-2">
+			  <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				{{ post.date | date: date_format }}
+			  </time>
+			  {%- if post.author -%}
+				• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author }}</span></span>
+			  {%- endif -%}</p>
+			<span class="post-excerpt">{{ post.excerpt }}</span>
+		</div>
+		<hr />
+
+	</div>  <!-- col -->
+</div>  <!-- row -->
+{% endfor %}
