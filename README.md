@@ -43,7 +43,7 @@ TODO
 ## Adding a person
 
 To add a new person, create a file called `<name>.md` in the `_people` directory.
-For exmaple, to add a profile for Harry Bovik, create the file `www/_people/harry-bovik.md`.
+For example, to add a profile for Harry Bovik, create the file `www/_people/harry-bovik.md`.
 
 The contents of the file should look like this:
 ```
