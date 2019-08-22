@@ -52,6 +52,9 @@ body {
 	a {
 		color: $primary_color;
 		font-weight: 600;
+		.faculty-name {
+			color: $snap_yellow_dark;
+		}
 	}
 	a:hover {
 		color: $primary_hover_color;
@@ -306,6 +309,21 @@ $profile_pic_overlap: (3/5);  // what frac of photo should overlap gray profile 
 	width: 100px;
 	border: 4px solid transparentize($snap_green_light, 0.4);
 	border-radius: 50px;
+}
+
+.directory-pic-faculty {
+	object-fit: cover;
+	height: 100px;
+	width: 100px;
+	border: 4px solid transparentize($snap_yellow_dark, 0.4);
+	border-radius: 50px;
+}
+
+.calendar {
+	position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
+	iframe {
+		position: absolute; top:0; left: 0; width: 100%; height: 70%;	 
+	}
 }
 
 footer {

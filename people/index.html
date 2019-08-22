@@ -13,10 +13,16 @@ layout: default
 {% for p in site.people %}
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 text-center">
 		<div class="w-100 mb-3">
-			<a class="mx-auto" href="{{ site.baseurl }}{{ p.url }}">
-				<img class="directory-pic mx-auto mb-2" 
-		             src="{{ site.baseurl }}/images/people/{%- if p.photo -%}{{ p.photo }}{%- else -%}scottie.png{%- endif -%}"></br>
-				{{ p.name }}
+			<a class="mx-auto" href="{{ p.website }}">
+				{% if p.position == "Faculty" %}
+					<img class="directory-pic-faculty mx-auto mb-2" 
+					 src="{{ site.baseurl }}/images/people/{%- if p.photo -%}{{ p.photo }}{%- else -%}scottie.png{%- endif -%}"></br>
+					 <div class="faculty-name">{{ p.name }}</div>
+				{% else %}
+					<img class="directory-pic mx-auto mb-2" 
+					 src="{{ site.baseurl }}/images/people/{%- if p.photo -%}{{ p.photo }}{%- else -%}scottie.png{%- endif -%}"></br>
+					 {{ p.name }}
+				{% endif %}
 			</a>
 		</div>
 	</div>  <!-- col -->
