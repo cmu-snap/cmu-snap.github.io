@@ -1,6 +1,6 @@
 ---
 layout: person
 name: Guoyao Feng
-website: https://www.cs.cmu.edu/directory/gfeng
+website: http://www.freddiefeng.com/personal/
 position: PhD Student
 ---

@@ -1,6 +1,7 @@
 ---
 layout: person
 name: Sannan Tariq
-website: https://www.cs.cmu.edu/directory/stariq
+website: http://www.contrib.andrew.cmu.edu/~stariq/
 position: PhD Student
+photo: sannan-tariq.jpg
 ---
