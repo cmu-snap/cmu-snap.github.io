@@ -1,7 +1,7 @@
 ---
 layout: person
 name: Nirav Atre
-website: https://www.linkedin.com/in/niravatre
+website: https://www.cs.cmu.edu/~natre/
 position: PhD Student
 photo: nirav-atre.jpg
 ---
