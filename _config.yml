@@ -17,9 +17,9 @@ title: SNAP Lab
 email: sherry@cs.cmu.edu
 description: >- # this means to ignore newlines until "baseurl:"
   SNAP is the Systems, Networking, and Performance lab at Carnegie Mellon
-  Univerity.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://hsadok.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+  University.
+# baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://snap.cs.cmu.edu" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
